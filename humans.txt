@@ -1,0 +1,27 @@
+/* TEAM */
+
+Organization: Sperax Foundation
+Site: https://sperax.io
+Location: Global / Remote
+
+/* SKILLS */
+
+38 AI agent skills covering DeFi, Web3, and the Sperax ecosystem.
+Published to ClawHub (clawhub.ai) for the OpenClaw agent community.
+
+Categories: Sperax Ecosystem, DeFi Knowledge, AI Agent + Web3,
+            Market Intelligence, Hot Topics, Developer / Power User, Reference
+
+/* TECH */
+
+Format: Markdown with YAML frontmatter
+Registry: ClawHub (clawhub.ai)
+Protocol: OpenClaw skill format
+License: MIT
+
+/* THANKS */
+
+OpenClaw — for building the open agent skill ecosystem
+Arbitrum — for the L2 infrastructure
+DeFi Llama — for open DeFi data
+The Graph — for decentralized indexing

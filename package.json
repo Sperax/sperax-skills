@@ -1,0 +1,47 @@
+{
+    "name": "sperax-skills",
+    "version": "1.0.0",
+    "description": "38 open-source AI agent skills for DeFi, Web3, and the Sperax ecosystem — published to ClawHub",
+    "author": "Sperax Foundation <dev@sperax.io>",
+    "license": "MIT",
+    "homepage": "https://github.com/sperax/sperax-skills",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sperax/sperax-skills.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sperax/sperax-skills/issues"
+    },
+    "keywords": [
+        "ai-agents",
+        "skills",
+        "defi",
+        "web3",
+        "sperax",
+        "clawhub",
+        "openclaw",
+        "arbitrum",
+        "erc-8004",
+        "stablecoin",
+        "knowledge-base"
+    ],
+    "scripts": {
+        "validate": "./bin/validate.sh",
+        "publish:all": "./bin/publish-all.sh",
+        "publish:dry": "./bin/publish-all.sh --dry-run",
+        "generate:llms": "./scripts/generate-llms-txt.sh"
+    },
+    "files": [
+        "skills/",
+        "bin/",
+        "docs/",
+        "llms.txt",
+        "llms-full.txt",
+        "SKILL.md",
+        "LICENSE",
+        "README.md"
+    ],
+    "engines": {
+        "node": ">=18"
+    }
+}

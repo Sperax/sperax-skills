@@ -1,0 +1,47 @@
+name: Publish to ClawHub
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (no actual publish)'
+        required: false
+        default: 'true'
+        type: choice
+        options:
+          - 'true'
+          - 'false'
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    name: Publish Skills
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install ClawHub CLI
+        run: bun install -g @openclaw/clawhub || npm install -g @openclaw/clawhub
+
+      - name: Authenticate
+        env:
+          CLAWHUB_TOKEN: ${{ secrets.CLAWHUB_TOKEN }}
+        run: clawhub login --token "$CLAWHUB_TOKEN"
+
+      - name: Publish skills
+        env:
+          DRY_RUN: ${{ github.event.inputs.dry_run || 'false' }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            ./bin/publish-all.sh --dry-run
+          else
+            ./bin/publish-all.sh
+          fi

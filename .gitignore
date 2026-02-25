@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ClawHub local state
+.clawhub/
+.clawdhub/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build artifacts
+dist/
