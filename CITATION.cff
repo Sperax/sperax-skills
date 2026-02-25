@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you reference this skill collection, please cite it as below."
+title: "Sperax Skills — AI Agent Knowledge for DeFi and Web3"
+version: "1.0.0"
+date-released: "2026-02-25"
+url: "https://github.com/sperax/sperax-skills"
+repository-code: "https://github.com/sperax/sperax-skills"
+license: MIT
+type: dataset
+keywords:
+  - ai-agents
+  - defi
+  - web3
+  - skills
+  - clawhub
+  - openclaw
+  - sperax
+  - arbitrum
+  - erc-8004
+  - stablecoin
+authors:
+  - name: "Sperax Foundation"
+    website: "https://sperax.io"

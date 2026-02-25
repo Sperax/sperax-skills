@@ -1,0 +1,108 @@
+name: CI — Validate Skills
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Skills
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate all skills
+        run: ./bin/validate.sh
+
+      - name: Check frontmatter consistency
+        run: |
+          errors=0
+          for skill_dir in skills/*/; do
+            slug=$(basename "$skill_dir")
+            file="$skill_dir/SKILL.md"
+            
+            if [ ! -f "$file" ]; then
+              echo "❌ Missing SKILL.md in $slug"
+              errors=$((errors + 1))
+              continue
+            fi
+            
+            # Check name in frontmatter matches folder
+            name_line=$(grep "^name:" "$file" | head -1 | sed 's/name: *//')
+            if [ -n "$name_line" ] && [ "$name_line" != "$slug" ]; then
+              echo "❌ Frontmatter name '$name_line' doesn't match folder '$slug'"
+              errors=$((errors + 1))
+            fi
+            
+            # Check description exists
+            if ! grep -q "^description:" "$file"; then
+              echo "❌ Missing description in $slug"
+              errors=$((errors + 1))
+            fi
+          done
+          
+          if [ $errors -gt 0 ]; then
+            echo "::error::Found $errors validation errors"
+            exit 1
+          fi
+          echo "✅ All skills validated"
+
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for leaked secrets
+        run: |
+          errors=0
+          patterns=(
+            'NEXT_PUBLIC_'
+            'sk-[a-zA-Z0-9]{20,}'
+            'ghp_[a-zA-Z0-9]{36}'
+            'gho_[a-zA-Z0-9]{36}'
+            '0x[a-fA-F0-9]{64}'
+            'packages/builtin-tool-'
+            'src/server/'
+            'src/store/'
+            'tRPC'
+          )
+          
+          for pattern in "${patterns[@]}"; do
+            if grep -rn "$pattern" skills/ 2>/dev/null; then
+              echo "❌ Found sensitive pattern: $pattern"
+              errors=$((errors + 1))
+            fi
+          done
+          
+          if [ $errors -gt 0 ]; then
+            echo "::error::Found $errors security issues"
+            exit 1
+          fi
+          echo "✅ No sensitive patterns detected"
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Markdown structure
+        run: |
+          for file in skills/*/SKILL.md; do
+            lines=$(wc -l < "$file")
+            if [ "$lines" -lt 50 ]; then
+              echo "⚠️  $(dirname "$file" | xargs basename): only $lines lines (minimum recommended: 100)"
+            fi
+          done
+          echo "✅ Structure check complete"
