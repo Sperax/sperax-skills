@@ -12,11 +12,6 @@
 ╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝    ╚══════╝╚═╝   ╚═╝╚═╝╚══════╝╚══════╝╚══════╝
 </pre>
 
-<!-- Hero SVG -->
-<p>
-  <img src=".github/sperax-skills-hero.svg" width="720" alt="Sperax Skills — AI Agent Skills for DeFi & Web3" />
-</p>
-
 <h4>Open-source AI agent skills for DeFi, Web3, and the Sperax ecosystem</h4>
 
 <p>
@@ -30,12 +25,16 @@
   <a href="https://plutus.fi"><img src="https://img.shields.io/badge/Plutus-partner-F7DC6F?style=for-the-badge" alt="Plutus"></a>
 </p>
 
-<p>
-  <img src="https://img.shields.io/badge/Skills-41-FF6B6B?style=flat-square" alt="41 Skills">&nbsp;
-  <img src="https://img.shields.io/badge/Categories-8-4ECDC4?style=flat-square" alt="8 Categories">&nbsp;
-  <img src="https://img.shields.io/badge/Lines-7,500+-F7DC6F?style=flat-square" alt="7,500+ Lines">&nbsp;
-  <img src="https://img.shields.io/badge/OpenClaw_Compatible-✓-A6E3A1?style=flat-square" alt="OpenClaw Compatible">
-</p>
+</div>
+
+<div align="center">
+
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/demo.svg">
+  <source media="(prefers-color-scheme: light)" srcset="public/demo.svg">
+  <img alt="Sperax Skills CLI — validate, search, install" src="public/demo.svg" width="720">
+</picture>
 
 <p>
   <a href="#-quick-start">Quick Start</a> &middot;
@@ -46,23 +45,15 @@
   <a href="#-faq">FAQ</a>
 </p>
 
-</div>
-
----
-
-<div align="center">
-
-### ⚡ See it in action
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/demo.svg">
-  <source media="(prefers-color-scheme: light)" srcset="public/demo.svg">
-  <img alt="Sperax Skills CLI — validate, search, install" src="public/demo.svg" width="720">
-</picture>
+<p>
+  <img src="https://img.shields.io/badge/Skills-41-FF6B6B?style=flat-square" alt="41 Skills">&nbsp;
+  <img src="https://img.shields.io/badge/Categories-8-4ECDC4?style=flat-square" alt="8 Categories">&nbsp;
+  <img src="https://img.shields.io/badge/Lines-7,500+-F7DC6F?style=flat-square" alt="7,500+ Lines">&nbsp;
+  <img src="https://img.shields.io/badge/OpenClaw_Compatible-✓-A6E3A1?style=flat-square" alt="OpenClaw Compatible">
+</p>
 
 </div>
 
----
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -463,6 +454,10 @@ Built with 🧠 by the [Sperax](https://sperax.io) team
 [sperax.io](https://sperax.io) &nbsp;&middot;&nbsp;
 GitHub [@sperax](https://github.com/sperax) &nbsp;&middot;&nbsp;
 X [@SperaxDAO](https://x.com/SperaxDAO)
+
+<p>
+  <img src=".github/sperax-skills-hero.svg" width="720" alt="Sperax Skills — AI Agent Skills for DeFi & Web3" />
+</p>
 
 <br/>
 
